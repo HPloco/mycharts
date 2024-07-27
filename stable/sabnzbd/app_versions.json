@@ -11,8 +11,8 @@
             "definitions/certificate",
             "definitions/interface"
         ],
-        "human_version": "4.3.1_20.1.5",
-        "version": "20.1.5",
+        "human_version": "4.3.2_21.1.3",
+        "version": "21.1.3",
         "chart_metadata": {
             "annotations": {
                 "truecharts.org/category": "media",
@@ -21,7 +21,7 @@
                 "truecharts.org/train": "stable"
             },
             "apiVersion": "v2",
-            "appVersion": "4.3.1",
+            "appVersion": "4.3.2",
             "dependencies": [
                 {
                     "name": "common",
@@ -57,7 +57,7 @@
                 "https://sabnzbd.org/"
             ],
             "type": "application",
-            "version": "20.1.5"
+            "version": "21.1.3"
         },
         "app_metadata": null,
         "schema": {
