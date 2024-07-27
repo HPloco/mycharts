@@ -3,14 +3,14 @@
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/home/runner/_work/catalog/catalog/stable/external-ip/6.0.9",
+        "location": "/home/runner/_work/catalog/catalog/stable/external-ip/6.1.3",
         "last_update": "2024-05-29 12:35:14",
         "required_features": [
             "definitions/timezone",
             "definitions/certificate"
         ],
-        "human_version": "latest_6.0.9",
-        "version": "6.0.9",
+        "human_version": "latest_6.1.3",
+        "version": "6.1.3",
         "chart_metadata": {
             "annotations": {
                 "truecharts.org/category": "Network-Management",
