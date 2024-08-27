@@ -1,18 +1,18 @@
 {
-    "10.1.10": {
+    "11.4.0": {
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/home/runner/_work/catalog/catalog/stable/nginx-proxy-manager/10.1.10",
-        "last_update": "2024-05-29 12:35:14",
+        "location": "/home/runner/_work/catalog/catalog/stable/nginx-proxy-manager/11.4.0",
+        "last_update": "2024-08-27 12:35:14",
         "required_features": [
             "definitions/timezone",
             "normalize/interfaceConfiguration",
             "definitions/certificate",
             "definitions/interface"
         ],
-        "human_version": "2.11.2_10.1.10",
-        "version": "10.1.10",
+        "human_version": "2.11.3_11.4.0",
+        "version": "11.4.0",
         "chart_metadata": {
             "annotations": {
                 "truecharts.org/category": "networking",
@@ -21,11 +21,11 @@
                 "truecharts.org/train": "stable"
             },
             "apiVersion": "v2",
-            "appVersion": "2.11.2",
+            "appVersion": "2.11.3",
             "dependencies": [
                 {
                     "name": "common",
-                    "version": "23.0.10",
+                    "version": "24.1.5",
                     "repository": "oci://tccr.io/truecharts",
                     "condition": "",
                     "alias": "",
@@ -34,7 +34,7 @@
                 },
                 {
                     "name": "mariadb",
-                    "version": "14.0.10",
+                    "version": "15.3.0",
                     "repository": "oci://tccr.io/truecharts",
                     "condition": "mariadb.enabled",
                     "alias": "",
@@ -67,7 +67,7 @@
                 "https://nginxproxymanager.com/"
             ],
             "type": "application",
-            "version": "10.1.10"
+            "version": "11.4.0"
         },
         "app_metadata": null,
         "schema": {

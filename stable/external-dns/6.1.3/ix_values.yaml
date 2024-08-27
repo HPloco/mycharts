@@ -5,7 +5,7 @@ image:
 externaldns:
   logLevel: "info"
   logFormat: "text"
-  interval: "5m"
+  interval: "10m"
   provider: "inmemory"
   sources:
     - "service"

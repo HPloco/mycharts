@@ -1,18 +1,18 @@
 {
-    "22.1.0": {
+    "23.1.5": {
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/home/runner/_work/catalog/catalog/stable/readarr/22.1.0",
-        "last_update": "2024-07-24 20:20:00",
+        "location": "/home/runner/_work/catalog/catalog/stable/readarr/23.1.5",
+        "last_update": "2024-08-27 20:20:00",
         "required_features": [
             "definitions/timezone",
             "normalize/interfaceConfiguration",
             "definitions/certificate",
             "definitions/interface"
         ],
-        "human_version": "0.3.32.2587_22.1.0",
-        "version": "22.1.0",
+        "human_version": "0.3.32.2587_23.1.5",
+        "version": "23.1.5",
         "chart_metadata": {
             "annotations": {
                 "truecharts.org/category": "media",
@@ -25,7 +25,7 @@
             "dependencies": [
                 {
                     "name": "common",
-                    "version": "23.0.10",
+                    "version": "24.1.5",
                     "repository": "oci://tccr.io/truecharts",
                     "condition": "",
                     "alias": "",
@@ -61,7 +61,7 @@
                 "https://readarr.com"
             ],
             "type": "application",
-            "version": "22.1.0"
+            "version": "23.1.5"
         },
         "app_metadata": null,
         "schema": {
