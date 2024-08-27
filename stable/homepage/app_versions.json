@@ -1,9 +1,9 @@
 {
-    "9.2.5": {
+    "9.2.6": {
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/home/runner/_work/catalog/catalog/stable/homepage/9.2.5",
+        "location": "/home/runner/_work/catalog/catalog/stable/homepage/9.2.6",
         "last_update": "2024-08-20 12:35:14",
         "required_features": [
             "definitions/timezone",
@@ -11,8 +11,8 @@
             "definitions/certificate",
             "definitions/interface"
         ],
-        "human_version": "0.9.6_9.2.5",
-        "version": "9.2.5",
+        "human_version": "0.9.6_9.2.6",
+        "version": "9.2.6",
         "chart_metadata": {
             "annotations": {
                 "truecharts.org/category": "dashboard",
@@ -55,7 +55,7 @@
                 "https://github.com/truecharts/charts/tree/master/charts/stable/homepage"
             ],
             "type": "application",
-            "version": "9.2.5"
+            "version": "9.2.6"
         },
         "app_metadata": null,
         "schema": {
