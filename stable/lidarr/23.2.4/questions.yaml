@@ -1,36 +1,166 @@
 groups:
-  - name: Container Image
-    description: Image to be used for container
-  - name: General Settings
-    description: General Deployment Settings
-  - name: Workload Settings
-    description: Workload Settings
+  - name: Image
+    description: |
+      Configured the images to be used for the Chart.
+      It's wise to use "digest pinned" tags and to avoid using "latest".
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/#images
+
+
+  - name: General
+    description: |
+      For TrueNAS SCALE We've grouped a number of settings here, that all effact how apps run in general.
+
+      Checkout the following documentation for more information:
+        - https://truecharts.org/common/global/
+        - https://truecharts.org/common/#tz
+        - https://truecharts.org/common/podoptions/
+        - Image Pull Secrets
+
+
+  - name: Workload
+    description: |
+      These settings configure how the actual Pods and containers are running.
+      Generally, on SCALE, we only expose a limited subset of these settings for the primary workload and container.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/workload/
+      - https://truecharts.org/common/container/
+
+
   - name: App Configuration
-    description: App Specific Config Options
-  - name: Networking and Services
-    description: Configure Network and Services for Container
-  - name: Storage and Persistence
-    description: Persist and Share Data that is Separate from the Container
+    description: |
+       Every application has different values that may be required to run or have multiple options that the user may choose to enable or disable to change the behavior of the application.
+       Most options should have a Tooltip (Circled Question Mark) to further describe said option.
+
+       To find more information, lookup your chart-specific documentation in the Charts List: https://truecharts.org/charts/description-list/
+
+  - name: Services
+    description: |
+      Service and Networking options for any applications are contained here.
+      Some applications may have complicated networking setups with multiple options or some may have no options here at all.
+
+      Options here include the service and port configurations for the application, and more may be enabled or changed under the Advanced Settings and Show Expert Config boxes.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/service/
+
+  - name: Networking
+    description: |
+      Contains advanced networking options that are not actively supported by the TrueCharts team.
+      Currently only contains scaleExternalInterfaces.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/scaleexternalinterface/
+
+  - name: Persistence
+    description: |
+      Many applications will have certain options for storage to be configurable by the user, the main two being PVC and hostpath but may include other types.
+      This storage is called Persistence since it is not deleted upon restart or upgrade of an application.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/persistence/
+      - https://truecharts.org/scale/guides/nfs-share/
+      - https://truecharts.org/general/faq/#why-pvc-is-recommended-over-hostpath
+
+
   - name: Ingress
-    description: Ingress Configuration
-  - name: Security and Permissions
-    description: Configure Security Context and Permissions
-  - name: Resources and Devices
-    description: "Specify Resources/Devices to be Allocated to Workload"
+    description: |
+      Ingress (more commonly known as Reverse Proxy) settings can be configured here. This is how Kubernetes connects your Applications in containers to FQDNs (fully qualified domain names).
+      If you choose to enable this you must have a "Ingress Provider" aka "Reverse Proxy" installed (We highly advice Traefik: https://truecharts.org/charts/premium/traefik/)
+      It also requiresa DNS service to actually resolve the DNS name of the FQDN specified.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/ingress/
+
+
+  - name: SecurityContext
+    description: |
+      The security settings for each application and/or permissions that each application may have for the files/directories created.
+      Each application will come with predefined permissions but users may want to change certain setting depending on their usage or capabilities.
+
+      Unless necessary users are advised to keep this section mostly to defaults.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/securitycontext/
+
+
+  - name: Resources
+    description: |
+      Resources limits that have been defined by each application are in this section.
+      Most will have a specific default that some users may want to change based on their specific hardware or needs.
+
+      This also contains the options to mount GPUs or, more precisely, "request" GPU's to be mounted.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/resources/
+
+  - name: Devices
+    description: |
+      These are special "mountpoints" that can be used to mount miscelanious USB and PCI devices using special hostPath mounts.
+      For clearity we've decided to seperate this from persistence on SCALE.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/persistence/device/
+      - https://truecharts.org/scale/guides/pci-passthrough/
+
   - name: Middlewares
     description: Traefik Middlewares
+
+  - name: StorageClass
+    description: |
+      StorageClasses define where to storage Storage.
+
+      Checkout the following documentation for more information:
+
   - name: Metrics
-    description: Metrics
+    description: |
+      Contains options to configure Prometheus metrics for the application.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/metrics/
+
+
   - name: Addons
-    description: Addon Configuration
-  - name: Backup Configuration
-    description: Configure Velero Backup Schedule
-  - name: Advanced
-    description: Advanced Configuration
+    description: |
+      Addons that are supplied by the TrueCharts team to add additional capabilities for users to use on top of the application’s defaults.
+      Things included here are VPN addons, Codeserver for editing files inside the application’s container, Netshoot for network troubelshooting, etc.
+
+      Generally not required for use but may be necessary or usefull at times for specific applications.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/addons/
+      - https://truecharts.org/scale/guides/vpn-setup/
+
+
+  - name: Experimental
+    description: |
+      Experimental Configuration Options
+      Often these are not fully flushed-out, could randomly break or might not work at-all.
+
   - name: Postgresql
-    description: Postgresql
+    description: |
+      For Postgresql we use "CloudNative-PG" as a backend, which has to be installed first.
+
+      Checkout the following documentation for more information:
+      - https://truecharts.org/common/cnpg/
+      - https://truecharts.org/scale/guides/sql-export/
+      - https://truecharts.org/scale/guides/recover-cnpg/
+
+  - name: Dependencies
+    description: |
+      contains dependency setting for which we, currently, do not have seperate catagories (yet)
+
+
   - name: Documentation
-    description: Documentation
+    description: |
+      We added this section to make everyone aware that OpenSource isn't always easy.
+      It doesn't keep existing without signficant ongoing support, so please consider supporting TrueCharts and other OpenSource projects.
+
+      Before installing, be sure you've followed the https://truecharts.org/scale/guides/getting-started/
+      We would also advice going over our https://truecharts.org/scale/guides/scale-intro/
+      and many of the other documentation pages...
 
 portals:
   open:
@@ -43,7 +173,7 @@ portals:
 
 questions:
   - variable: global
-    group: General Settings
+    group: General
     label: "Global Settings"
     schema:
       additional_attrs: true
@@ -56,8 +186,79 @@ questions:
             type: boolean
             default: false
 
+  - variable: credentialsList
+    group: General
+    label: "Credentials (Experimental)"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: credentialsEntry
+          label: "Enter Credentials"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: name
+                label: Name
+                description: "Name"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: type
+                label: Type
+                description: "Type of Credential"
+                schema:
+                  type: string
+                  default: "s3"
+                  enum:
+                    - value: s3
+                      description: s3 Storage
+              - variable: url
+                label: "url"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: path
+                label: "path"
+                description: "Path Prefix not needed for most cases"
+                schema:
+                  type: string
+                  default: ""
+              - variable: bucket
+                label: "bucket"
+                schema:
+                  show_if: [["type", "=", "s3"]]
+                  type: string
+                  default: ""
+                  required: true
+              - variable: accessKey
+                label: "accessKey"
+                schema:
+                  show_if: [["type", "=", "s3"]]
+                  type: string
+                  default: ""
+                  required: true
+              - variable: secretKey
+                label: "secretKey"
+                schema:
+                  show_if: [["type", "=", "s3"]]
+                  type: string
+                  default: ""
+                  required: true
+              - variable: encrKey
+                label: "encrKey"
+                description: "The Encryption key is needed for tools like volsync if not needed it will be ignored"
+                schema:
+                  show_if: [["type", "=", "s3"]]
+                  type: string
+                  default: "MYSECRETPASSPHRASE"
+                  required: true
+
   - variable: workload
-    group: "Workload Settings"
+    group: "Workload"
     label: ""
     schema:
       additional_attrs: true
@@ -184,7 +385,7 @@ questions:
 
   - variable: TZ
     label: Timezone
-    group: "General Settings"
+    group: "General"
     schema:
       type: string
       default: "Etc/UTC"
@@ -192,7 +393,7 @@ questions:
         - "definitions/timezone"
 
   - variable: podOptions
-    group: "General Settings"
+    group: "General"
     label: "Global Pod Options (Advanced)"
     schema:
       additional_attrs: true
@@ -261,7 +462,7 @@ questions:
                               required: true
 
   - variable: imagePullSecretList
-    group: "General Settings"
+    group: "General"
     label: "Image Pull Secrets"
     schema:
       type: list
@@ -311,7 +512,7 @@ questions:
                         default: ""
 
   - variable: service
-    group: Networking and Services
+    group: Services
     label: Configure Service(s)
     schema:
       additional_attrs: true
@@ -371,233 +572,225 @@ questions:
                               type: int
                               default: 8686
                               required: true
-  - variable: serviceexpert
-    group: Networking and Services
-    label: Show Expert Config
+  - variable: scaleExternalInterface
+    description: 'Add External Interfaces (Experimental, might change or be removed without further notice)'
+    label: Add external Interfaces (Experimental)
+    group: Networking
     schema:
-      type: boolean
-      default: false
-      show_subquestions_if: true
-      subquestions:
-
-        - variable: scaleExternalInterface
-          description: Add External Interfaces
-          label: Add external Interfaces
-          group: Networking
+      type: list
+      items:
+        - variable: interfaceConfiguration
+          description: Interface Configuration
+          label: Interface Configuration
           schema:
-            type: list
-            items:
-              - variable: interfaceConfiguration
-                description: Interface Configuration
-                label: Interface Configuration
+            additional_attrs: true
+            type: dict
+            $ref:
+              - "normalize/interfaceConfiguration"
+            attrs:
+              - variable: hostInterface
+                description: Please Specify Host Interface
+                label: Host Interface
                 schema:
-                  additional_attrs: true
-                  type: dict
+                  type: string
+                  required: true
                   $ref:
-                    - "normalize/interfaceConfiguration"
-                  attrs:
-                    - variable: hostInterface
-                      description: Please Specify Host Interface
-                      label: Host Interface
-                      schema:
-                        type: string
-                        required: true
-                        $ref:
-                          - "definitions/interface"
-                    - variable: ipam
-                      description: Define how IP Address will be managed
-                      label: IP Address Management
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        required: true
-                        attrs:
-                          - variable: type
-                            description: Specify type for IPAM
-                            label: IPAM Type
-                            schema:
-                              type: string
-                              required: true
-                              enum:
-                                - value: dhcp
-                                  description: Use DHCP
-                                - value: static
-                                  description: Use Static IP
-                          - variable: staticIPConfigurations
-                            label: Static IP Addresses
-                            schema:
-                              type: list
-                              show_if: [["type", "=", "static"]]
-                              items:
-                                - variable: staticIP
-                                  label: Static IP
-                                  schema:
-                                    type: ipaddr
-                                    cidr: true
-                          - variable: staticRoutes
-                            label: Static Routes
-                            schema:
-                              type: list
-                              show_if: [["type", "=", "static"]]
-                              items:
-                                - variable: staticRouteConfiguration
-                                  label: Static Route Configuration
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: destination
-                                        label: Destination
-                                        schema:
-                                          type: ipaddr
-                                          cidr: true
-                                          required: true
-                                      - variable: gateway
-                                        label: Gateway
-                                        schema:
-                                          type: ipaddr
-                                          cidr: false
-                                          required: true
-
-        - variable: serviceList
-          label: Add Manual Custom Services
-          group: Networking and Services
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: serviceListEntry
-                label: Custom Service
+                    - "definitions/interface"
+              - variable: ipam
+                description: Define how IP Address will be managed
+                label: IP Address Management
                 schema:
                   additional_attrs: true
                   type: dict
+                  required: true
                   attrs:
-                    - variable: enabled
-                      label: Enable the service
-                      schema:
-                        type: boolean
-                        default: true
-                        hidden: true
-                    - variable: name
-                      label: Name
-                      schema:
-                        type: string
-                        default: ""
                     - variable: type
-                      label: Service Type
-                      description: "ClusterIP's are only internally available and Loadbalancer exposes the service using the system loadbalancer"
+                      description: Specify type for IPAM
+                      label: IPAM Type
                       schema:
                         type: string
-                        default: LoadBalancer
+                        required: true
                         enum:
-                          - value: LoadBalancer
-                            description: LoadBalancer (Expose Ports)
-                          - value: ClusterIP
-                            description: ClusterIP (Do Not Expose Ports)
-                          - value: Simple
-                            description: Deprecated CHANGE THIS
-                    - variable: loadBalancerIP
-                      label: LoadBalancer IP
-                      description: "MetalLB Only: Selects the Loadbalancer IP to expose on. Required when using PortalButton with MetalLB"
-                      schema:
-                        show_if: [["type", "=", "LoadBalancer"]]
-                        type: string
-                        default: ""
-                    - variable: advancedsvcset
-                      label: Show Advanced Service Settings
-                      schema:
-                        type: boolean
-                        default: false
-                        show_subquestions_if: true
-                        subquestions:
-                          - variable: externalIPs
-                            label: "External IP's"
-                            description: "External IP's"
-                            schema:
-                              type: list
-                              default: []
-                              items:
-                                - variable: externalIP
-                                  label: External IP
-                                  schema:
-                                    type: string
-                          - variable: ipFamilyPolicy
-                            label: IP Family Policy
-                            description: Specify the IP Policy
-                            schema:
-                              type: string
-                              default: SingleStack
-                              enum:
-                                - value: SingleStack
-                                  description: SingleStack
-                                - value: PreferDualStack
-                                  description: PreferDualStack
-                                - value: RequireDualStack
-                                  description: RequireDualStack
-                          - variable: ipFamilies
-                            label: IP Families
-                            description: (Advanced) The IP Families that should be used
-                            schema:
-                              type: list
-                              default: []
-                              items:
-                                - variable: ipFamily
-                                  label: IP Family
-                                  schema:
-                                    type: string
-                    - variable: portsList
-                      label: Additional Service Ports
+                          - value: dhcp
+                            description: Use DHCP
+                          - value: static
+                            description: Use Static IP
+                    - variable: staticIPConfigurations
+                      label: Static IP Addresses
                       schema:
                         type: list
-                        default: []
+                        show_if: [["type", "=", "static"]]
                         items:
-                          - variable: portsListEntry
-                            label: Custom ports
+                          - variable: staticIP
+                            label: Static IP
+                            schema:
+                              type: ipaddr
+                              cidr: true
+                    - variable: staticRoutes
+                      label: Static Routes
+                      schema:
+                        type: list
+                        show_if: [["type", "=", "static"]]
+                        items:
+                          - variable: staticRouteConfiguration
+                            label: Static Route Configuration
                             schema:
                               additional_attrs: true
                               type: dict
                               attrs:
-                                - variable: enabled
-                                  label: Enable the Port
+                                - variable: destination
+                                  label: Destination
                                   schema:
-                                    type: boolean
-                                    default: true
-                                    hidden: true
-                                - variable: name
-                                  label: Port Name
-                                  schema:
-                                    type: string
-                                    default: ""
-                                - variable: protocol
-                                  label: Port Type
-                                  schema:
-                                    type: string
-                                    default: tcp
-                                    enum:
-                                      - value: http
-                                        description: HTTP
-                                      - value: https
-                                        description: HTTPS
-                                      - value: tcp
-                                        description: TCP
-                                      - value: udp
-                                        description: UDP
-                                - variable: targetPort
-                                  label: Target Port
-                                  description: This port exposes the container port on the service
-                                  schema:
-                                    type: int
+                                    type: ipaddr
+                                    cidr: true
                                     required: true
-                                - variable: port
-                                  label: Container Port
+                                - variable: gateway
+                                  label: Gateway
                                   schema:
-                                    type: int
+                                    type: ipaddr
+                                    cidr: false
                                     required: true
+
+
+  - variable: serviceList
+    label: Add Manual Custom Services
+    group: Services
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: serviceListEntry
+          label: Custom Service
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable the service
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: name
+                label: Name
+                schema:
+                  type: string
+                  default: ""
+              - variable: type
+                label: Service Type
+                description: "ClusterIP's are only internally available and Loadbalancer exposes the service using the system loadbalancer"
+                schema:
+                  type: string
+                  default: LoadBalancer
+                  enum:
+                    - value: LoadBalancer
+                      description: LoadBalancer (Expose Ports)
+                    - value: ClusterIP
+                      description: ClusterIP (Do Not Expose Ports)
+                    - value: Simple
+                      description: Deprecated CHANGE THIS
+              - variable: loadBalancerIP
+                label: LoadBalancer IP
+                description: "MetalLB Only: Selects the Loadbalancer IP to expose on. Required when using PortalButton with MetalLB"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: string
+                  default: ""
+              - variable: advancedsvcset
+                label: Show Advanced Service Settings
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: externalIPs
+                      label: "External IP's"
+                      description: "External IP's"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: externalIP
+                            label: External IP
+                            schema:
+                              type: string
+                    - variable: ipFamilyPolicy
+                      label: IP Family Policy
+                      description: Specify the IP Policy
+                      schema:
+                        type: string
+                        default: SingleStack
+                        enum:
+                          - value: SingleStack
+                            description: SingleStack
+                          - value: PreferDualStack
+                            description: PreferDualStack
+                          - value: RequireDualStack
+                            description: RequireDualStack
+                    - variable: ipFamilies
+                      label: IP Families
+                      description: (Advanced) The IP Families that should be used
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: ipFamily
+                            label: IP Family
+                            schema:
+                              type: string
+              - variable: portsList
+                label: Additional Service Ports
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: portsListEntry
+                      label: Custom ports
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: Enable the Port
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
+                          - variable: name
+                            label: Port Name
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: protocol
+                            label: Port Type
+                            schema:
+                              type: string
+                              default: tcp
+                              enum:
+                                - value: http
+                                  description: HTTP
+                                - value: https
+                                  description: HTTPS
+                                - value: tcp
+                                  description: TCP
+                                - value: udp
+                                  description: UDP
+                          - variable: targetPort
+                            label: Target Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              required: true
+                          - variable: port
+                            label: Container Port
+                            schema:
+                              type: int
+                              required: true
 
   - variable: persistence
     label: Integrated Persistent Storage
     description: Integrated Persistent Storage
-    group: Storage and Persistence
+    group: Persistence
     schema:
       additional_attrs: true
       type: dict
@@ -790,6 +983,67 @@ questions:
                   show_if: [["type", "=", "pvc"]]
                   type: string
                   default: ""
+              - variable: volsync
+                label: 'VolSync (Experimental)'
+                description: Backup, Restore and Synchronise PVC storage
+                schema:
+                  show_if: [["type", "=", "pvc"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: VolSyncEntry
+                      label: VolSync Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: Name
+                            description: "Name of backup configuration"
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+                          - variable: type
+                            label: Type VolSync/Backup
+                            description: Sets the VolSync Type
+                            schema:
+                              type: string
+                              default: "restic"
+                              enum:
+                                - value: restic
+                                  description: Restic
+                          - variable: credentials
+                            label: Credentials
+                            description: "Name of credentials in the credentials section"
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+                          - variable: dest
+                            label: VolSync Destination (Restore)
+                            description: VolSYnc Destination is the location where data is the reciever and configures recovery of backups
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: Enable
+                                  schema:
+                                    type: boolean
+                                    default: true
+                          - variable: src
+                            label: VolSync Source (Backup)
+                            description: VolSYnc Source is the location where data is the sender and creates backups to storage
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: Enable
+                                  schema:
+                                    type: boolean
+                                    default: true
               - variable: static
                 label: 'Static Fixed PVC Bindings (Experimental)'
                 description: Link a PVC to a specific storage location
@@ -879,7 +1133,7 @@ questions:
 
   - variable: persistenceList
     label: Additional App Storage
-    group: Storage and Persistence
+    group: Persistence
     schema:
       type: list
       default: []
@@ -1080,6 +1334,67 @@ questions:
                   show_if: [["type", "=", "pvc"]]
                   type: string
                   default: ""
+              - variable: volsync
+                label: 'VolSync (Experimental)'
+                description: Backup, Restore and Synchronise PVC storage
+                schema:
+                  show_if: [["type", "=", "pvc"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: VolSyncEntry
+                      label: VolSync Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: Name
+                            description: "Name of backup configuration"
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+                          - variable: type
+                            label: Type VolSync/Backup
+                            description: Sets the VolSync Type
+                            schema:
+                              type: string
+                              default: "restic"
+                              enum:
+                                - value: restic
+                                  description: Restic
+                          - variable: credentials
+                            label: Credentials
+                            description: "Name of credentials in the credentials section"
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+                          - variable: dest
+                            label: VolSync Destination (Restore)
+                            description: VolSYnc Destination is the location where data is the reciever and configures recovery of backups
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: Enable
+                                  schema:
+                                    type: boolean
+                                    default: true
+                          - variable: src
+                            label: VolSync Source (Backup)
+                            description: VolSYnc Source is the location where data is the sender and creates backups to storage
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: Enable
+                                  schema:
+                                    type: boolean
+                                    default: true
               - variable: static
                 label: 'Static Fixed PVC Bindings (Experimental)'
                 description: Link a PVC to a specific storage location
@@ -1700,7 +2015,7 @@ questions:
                               show_if: [["enabled", "=", true]]
 
   - variable: securityContext
-    group: Security and Permissions
+    group: SecurityContext
     label: Security Context
     schema:
       additional_attrs: true
@@ -1795,7 +2110,7 @@ questions:
                   type: int
                   default: 568
   - variable: resources
-    group: Resources and Devices
+    group: Resources
     label: "Resource Limits"
     schema:
       additional_attrs: true
@@ -1861,7 +2176,7 @@ questions:
                   valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
   - variable: deviceList
     label: Mount USB Devices
-    group: Resources and Devices
+    group: Devices
     schema:
       type: list
       default: []
@@ -1939,7 +2254,7 @@ questions:
                           # TODO: Rule List section
 
 #  - variable: horizontalPodAutoscaler
-#    group: Advanced
+#    group: Experimental
 #    label: (Advanced) Horizontal Pod Autoscaler
 #    schema:
 #      type: list
@@ -1991,7 +2306,7 @@ questions:
 #                      type: int
 #                      default: 80
   - variable: networkPolicy
-    group: Advanced
+    group: Experimental
     label: (Advanced) Network Policy
     schema:
       type: list
