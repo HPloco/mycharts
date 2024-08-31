@@ -1,15 +1,13 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 10.8.13
+appVersion: 10.9.10
 dependencies:
   - name: common
-    version: 20.3.12
+    version: 24.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,16 +21,16 @@ keywords:
   - jellyfin
   - plex
   - emby
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: jellyfin
 sources:
+  - https://ghcr.io/jellyfin/jellyfin
   - https://github.com/jellyfin/jellyfin
   - https://github.com/truecharts/charts/tree/master/charts/stable/jellyfin
   - https://hub.docker.com/r/alpine/socat
-  - https://hub.docker.com/r/jellyfin/jellyfin
 type: application
-version: 18.8.16
+version: 20.1.20
