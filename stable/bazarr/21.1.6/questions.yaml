@@ -186,6 +186,77 @@ questions:
             type: boolean
             default: false
 
+  - variable: credentialsList
+    group: General
+    label: "Credentials (Experimental)"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: credentialsEntry
+          label: "Enter Credentials"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: name
+                label: Name
+                description: "Name"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: type
+                label: Type
+                description: "Type of Credential"
+                schema:
+                  type: string
+                  default: "s3"
+                  enum:
+                    - value: s3
+                      description: s3 Storage
+              - variable: url
+                label: "url"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: path
+                label: "path"
+                description: "Path Prefix not needed for most cases"
+                schema:
+                  type: string
+                  default: ""
+              - variable: bucket
+                label: "bucket"
+                schema:
+                  show_if: [["type", "=", "s3"]]
+                  type: string
+                  default: ""
+                  required: true
+              - variable: accessKey
+                label: "accessKey"
+                schema:
+                  show_if: [["type", "=", "s3"]]
+                  type: string
+                  default: ""
+                  required: true
+              - variable: secretKey
+                label: "secretKey"
+                schema:
+                  show_if: [["type", "=", "s3"]]
+                  type: string
+                  default: ""
+                  required: true
+              - variable: encrKey
+                label: "encrKey"
+                description: "The Encryption key is needed for tools like volsync if not needed it will be ignored"
+                schema:
+                  show_if: [["type", "=", "s3"]]
+                  type: string
+                  default: "MYSECRETPASSPHRASE"
+                  required: true
+
   - variable: workload
     group: "Workload"
     label: ""
@@ -890,6 +961,67 @@ questions:
                   show_if: [["type", "=", "pvc"]]
                   type: string
                   default: ""
+              - variable: volsync
+                label: 'VolSync (Experimental)'
+                description: Backup, Restore and Synchronise PVC storage
+                schema:
+                  show_if: [["type", "=", "pvc"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: VolSyncEntry
+                      label: VolSync Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: Name
+                            description: "Name of backup configuration"
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+                          - variable: type
+                            label: Type VolSync/Backup
+                            description: Sets the VolSync Type
+                            schema:
+                              type: string
+                              default: "restic"
+                              enum:
+                                - value: restic
+                                  description: Restic
+                          - variable: credentials
+                            label: Credentials
+                            description: "Name of credentials in the credentials section"
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+                          - variable: dest
+                            label: VolSync Destination (Restore)
+                            description: VolSYnc Destination is the location where data is the reciever and configures recovery of backups
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: Enable
+                                  schema:
+                                    type: boolean
+                                    default: true
+                          - variable: src
+                            label: VolSync Source (Backup)
+                            description: VolSYnc Source is the location where data is the sender and creates backups to storage
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: Enable
+                                  schema:
+                                    type: boolean
+                                    default: true
               - variable: static
                 label: 'Static Fixed PVC Bindings (Experimental)'
                 description: Link a PVC to a specific storage location
@@ -1180,6 +1312,67 @@ questions:
                   show_if: [["type", "=", "pvc"]]
                   type: string
                   default: ""
+              - variable: volsync
+                label: 'VolSync (Experimental)'
+                description: Backup, Restore and Synchronise PVC storage
+                schema:
+                  show_if: [["type", "=", "pvc"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: VolSyncEntry
+                      label: VolSync Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: Name
+                            description: "Name of backup configuration"
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+                          - variable: type
+                            label: Type VolSync/Backup
+                            description: Sets the VolSync Type
+                            schema:
+                              type: string
+                              default: "restic"
+                              enum:
+                                - value: restic
+                                  description: Restic
+                          - variable: credentials
+                            label: Credentials
+                            description: "Name of credentials in the credentials section"
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+                          - variable: dest
+                            label: VolSync Destination (Restore)
+                            description: VolSYnc Destination is the location where data is the reciever and configures recovery of backups
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: Enable
+                                  schema:
+                                    type: boolean
+                                    default: true
+                          - variable: src
+                            label: VolSync Source (Backup)
+                            description: VolSYnc Source is the location where data is the sender and creates backups to storage
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: Enable
+                                  schema:
+                                    type: boolean
+                                    default: true
               - variable: static
                 label: 'Static Fixed PVC Bindings (Experimental)'
                 description: Link a PVC to a specific storage location
