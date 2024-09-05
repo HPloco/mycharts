@@ -652,40 +652,6 @@
             ],
             "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/lldap.webp"
         },
-        "mealie": {
-            "app_readme": "<p>Mealie is a self hosted recipe manager and meal planner with a RestAPI backend</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/mealie\">https://truecharts.org/charts/stable/mealie</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
-            "categories": [
-                "utilities"
-            ],
-            "description": "Mealie is a self hosted recipe manager and meal planner with a RestAPI backend",
-            "healthy": true,
-            "healthy_error": null,
-            "home": "https://truecharts.org/charts/stable/mealie",
-            "location": "/home/runner/_work/catalog/catalog/stable/mealie",
-            "latest_version": "23.6.1",
-            "latest_app_version": "1.12.0",
-            "latest_human_version": "1.12.0_23.6.1",
-            "last_update": "2024-09-05 12:35:14",
-            "name": "mealie",
-            "recommended": false,
-            "title": "Mealie",
-            "maintainers": [
-                {
-                    "name": "TrueCharts",
-                    "email": "info@truecharts.org",
-                    "url": "https://truecharts.org"
-                }
-            ],
-            "tags": [],
-            "screenshots": [],
-            "sources": [
-                "https://ghcr.io/mealie-recipes/mealie",
-                "https://github.com/mealie-recipes/mealie",
-                "https://github.com/truecharts/charts/tree/master/charts/stable/mealie"
-            ],
-            "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/mealie.webp"
-        },
-
         "minecraft-bedrock": {
             "app_readme": "<p>Minecraft Bedrock Dedicated Server</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/minecraft-bedrock\">https://truecharts.org/charts/stable/minecraft-bedrock</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
             "categories": [
@@ -1058,6 +1024,40 @@
             ],
             "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/sonarr.webp"
         },
+        "tandoor-recipes": {
+            "app_readme": "<p>Tandoor Recipes is a Django application to manage, tag and search recipes using either built in models or external storage providers hosting PDF's, Images or other files.</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/tandoor-recipes\">https://truecharts.org/charts/stable/tandoor-recipes</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+            "categories": [
+                "media"
+            ],
+            "description": "Tandoor Recipes is a Django application to manage, tag and search recipes using either built in models or external storage providers hosting PDF's, Images or other files.",
+            "healthy": true,
+            "healthy_error": null,
+            "home": "https://truecharts.org/charts/stable/tandoor-recipes",
+            "location": "/home/runner/_work/catalog/catalog/stable/tandoor-recipes",
+            "latest_version": "18.1.6",
+            "latest_app_version": "1.5.19",
+            "latest_human_version": "1.5.19_18.1.6",
+            "last_update": "2024-09-05 12:35:14",
+            "name": "tandoor-recipes",
+            "recommended": false,
+            "title": "Tandoor-recipes",
+            "maintainers": [
+                {
+                    "name": "TrueCharts",
+                    "email": "info@truecharts.org",
+                    "url": "https://truecharts.org"
+                }
+            ],
+            "tags": [],
+            "screenshots": [],
+            "sources": [
+                "https://github.com/truecharts/charts/tree/master/charts/stable/tandoor-recipes",
+                "https://github.com/vabene1111/recipes",
+                "https://hub.docker.com/r/vabene1111/recipes"
+            ],
+            "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/tandoor-recipes.webp"
+        },
+
         "tautulli": {
             "app_readme": "<p>A Python based monitoring and tracking tool for Plex Media Server</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/tautulli\">https://truecharts.org/charts/stable/tautulli</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
             "categories": [
