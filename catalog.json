@@ -652,6 +652,40 @@
             ],
             "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/lldap.webp"
         },
+        "mealie": {
+            "app_readme": "<p>Mealie is a self hosted recipe manager and meal planner with a RestAPI backend</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/mealie\">https://truecharts.org/charts/stable/mealie</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+            "categories": [
+                "utilities"
+            ],
+            "description": "Mealie is a self hosted recipe manager and meal planner with a RestAPI backend",
+            "healthy": true,
+            "healthy_error": null,
+            "home": "https://truecharts.org/charts/stable/mealie",
+            "location": "/home/runner/_work/catalog/catalog/stable/mealie",
+            "latest_version": "23.6.1",
+            "latest_app_version": "1.12.0",
+            "latest_human_version": "1.12.0_23.6.1",
+            "last_update": "2024-09-05 12:35:14",
+            "name": "mealie",
+            "recommended": false,
+            "title": "Mealie",
+            "maintainers": [
+                {
+                    "name": "TrueCharts",
+                    "email": "info@truecharts.org",
+                    "url": "https://truecharts.org"
+                }
+            ],
+            "tags": [],
+            "screenshots": [],
+            "sources": [
+                "https://ghcr.io/mealie-recipes/mealie",
+                "https://github.com/mealie-recipes/mealie",
+                "https://github.com/truecharts/charts/tree/master/charts/stable/mealie"
+            ],
+            "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/mealie.webp"
+        },
+
         "minecraft-bedrock": {
             "app_readme": "<p>Minecraft Bedrock Dedicated Server</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/minecraft-bedrock\">https://truecharts.org/charts/stable/minecraft-bedrock</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
             "categories": [
