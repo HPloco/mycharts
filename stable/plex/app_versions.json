@@ -12,7 +12,7 @@
             "definitions/certificate",
             "definitions/nodeIP"
         ],
-        "human_version": "1.41.0.8992",
+        "human_version": "1.41.0.8992_19.2.0",
         "version": "19.2.0",
         "chart_metadata": {
             "annotations": {
