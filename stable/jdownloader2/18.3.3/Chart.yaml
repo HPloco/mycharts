@@ -1,15 +1,13 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
   truecharts.org/category: downloads
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 24.01.1
+appVersion: 24.08.1
 dependencies:
   - name: common
-    version: 20.3.11
+    version: 24.1.16
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,16 +20,16 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/jdownloader2.webp
 keywords:
   - jdownloader
   - download
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: jdownloader2
 sources:
-  - https://jdownloader.org/
   - https://github.com/jlesage/docker-jdownloader-2
   - https://github.com/truecharts/charts/tree/master/charts/stable/jdownloader2
   - https://hub.docker.com/r/jlesage/jdownloader-2
+  - https://jdownloader.org/
 type: application
-version: 16.8.13
+version: 18.3.3
