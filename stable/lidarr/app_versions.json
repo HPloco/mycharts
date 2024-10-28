@@ -1,5 +1,5 @@
 {
-    "24.2.1": {
+    "24.2.2": {
         "healthy": true,
         "supported": true,
         "healthy_error": null,
@@ -11,8 +11,8 @@
             "definitions/certificate",
             "definitions/interface"
         ],
-        "human_version": "2.7.1.4417_24.2.1",
-        "version": "24.2.1",
+        "human_version": "2.7.1.4417_24.2.2",
+        "version": "24.2.2",
         "chart_metadata": {
             "annotations": {
                 "truecharts.org/category": "media",
@@ -58,7 +58,7 @@
                 "https://github.com/truecharts/charts/tree/master/charts/stable/lidarr"
             ],
             "type": "application",
-            "version": "24.2.1"
+            "version": "24.2.2"
         },
         "app_metadata": null,
         "schema": {
