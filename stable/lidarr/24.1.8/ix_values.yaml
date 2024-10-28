@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/onedr0p/lidarr-develop
   pullPolicy: IfNotPresent
-  tag: v2.6.4.4402@sha256:b362a6e7ad7457c3d9a5be44007986051bbef63a123fd9ecdb669531e92c0e9e
+  tag: 2.7.1.4417@sha256:2bd9a274a5f9fb3f6ed780514fcacd8ec4044b67d5c831b5fafbcc2afcb016c4
 exportarrImage:
   repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
