@@ -1,22 +1,20 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
   truecharts.org/category: cloud
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: premium
 apiVersion: v2
-appVersion: 28.0.4
+appVersion: 30.0.0
 dependencies:
   - name: common
-    version: 20.3.12
+    version: 25.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 13.3.11
+    version: 15.3.2
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -32,7 +30,7 @@ keywords:
   - http
   - web
   - php
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -42,11 +40,11 @@ sources:
   - https://github.com/nextcloud/docker
   - https://github.com/nextcloud/helm
   - https://github.com/truecharts/charts/tree/master/charts/premium/nextcloud
-  - https://hub.docker.com/r/nginxinc/nginx-unprivileged
   - https://github.com/truecharts/containers/tree/master/apps/nextcloud-fpm
-  - https://hub.docker.com/r/collabora/code
-  - https://hub.docker.com/r/clamav/clamav
   - https://github.com/truecharts/containers/tree/master/apps/nextcloud-imaginary
   - https://github.com/truecharts/containers/tree/master/apps/nextcloud-push-notify
+  - https://hub.docker.com/r/clamav/clamav
+  - https://hub.docker.com/r/collabora/code
+  - https://hub.docker.com/r/nginxinc/nginx-unprivileged
 type: application
-version: 29.10.36
+version: 32.2.10
